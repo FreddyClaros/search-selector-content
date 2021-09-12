@@ -1,0 +1,36 @@
+<div class="container mt-5 text-center">
+    <h1>{{ title }}</h1>
+    <br>
+    <form class="row">
+        <div class="col">
+            <input type="text" id="field" class="form-control" [formControl]="field">
+        </div>
+        <div class="col col-lg-2">
+            <select class="form-select" id ="select" aria-label="Default select example" [formControl]="select">
+                <option value ="all" selected>All</option>
+                <option value="music">Music</option>
+                <option value="movies">Movies</option>
+                <option value="podcast">Podcast</option>
+            </select>
+        </div>
+        <div class="col-md-auto">
+            <button type ="button" class="btn btn-primary" id="button" (click)="clickSearch()">Search</button>
+        </div>
+    </form>
+    <div class="tableResults mt-5" *ngIf="tableVisible">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col"  class="text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody id="content"> 
+                <tr>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
