@@ -13,7 +13,4 @@ export class SearchService {
   getInfo(url: string): Observable<any>{
     return this.http.get(url);
   }
-  getUsers(): Observable<any>{
-    return this.http.get('https://reqres.in/api/users?page=2');
-  }
 }

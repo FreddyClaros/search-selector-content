@@ -11,6 +11,7 @@
                 <option value="music">Music</option>
                 <option value="movies">Movies</option>
                 <option value="podcast">Podcast</option>
+                <option value="software">software</option>
             </select>
         </div>
         <div class="col-md-auto">
@@ -25,9 +26,18 @@
                     <th scope="col"  class="text-left">Description</th>
                 </tr>
             </thead>
-            <tbody id="content"> 
-                <tr>
-                    <th scope="row"></th>
+            <tbody id="content" *ngIf="info"> 
+                <tr *ngFor="let item of info.results | ObjToArray">
+                    <th scope="row">
+                        <!--<td>{{ item.artworkUrl100 }}</td>-->
+                        <img src='{{ item.artworkUrl100 }}' windth="100px" class="img-fluid">
+                    </th>
+                    <th scope="row">
+                        <p class="text-left">Name of the album: <a class="font-weight-normal">{{ item.collectionName }}</a></p>
+                        <p class="text-left">Track name: <a class="font-weight-normal">{{ item.trackName }}</a></p>
+                        <p class="text-left">Name of the Artist: <a class="font-weight-normal">{{ item.artistName }}</a></p>
+                        <p class="text-left">Price: <a class="font-weight-normal">{{ item.trackPrice }} $</a></p>
+                    </th>
                     <th scope="row"></th>
                 </tr>
             </tbody>

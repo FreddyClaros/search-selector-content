@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, Validators, NgSelectOption } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { SearchService } from './search.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class SearchBarComponent implements OnInit {
 
   constructor(public searchService: SearchService) { 
     this.tableVisible = false;
-    this.urlItunes = "https://itunes.apple.com/search?term=";
+    this.urlItunes = "https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=";
     this.searchText = "";
     this.searchEntity = "";
     this.searchAux = "&limit=25";
@@ -43,7 +43,7 @@ export class SearchBarComponent implements OnInit {
 
   clickSearch(){
     if(this.select.value!='all'){
-      this.searchEntity = "&entity="+this.select.value;
+      this.searchEntity = "&mediatype="+this.select.value;
     }
     this.searchText = this.field.value;
     this.searchText = this.searchText.toLowerCase().trim();
