@@ -48,14 +48,13 @@ export class SearchBarComponent implements OnInit {
     this.searchText = this.field.value;
     this.searchText = this.searchText.toLowerCase().trim();
     this.url = this.urlItunes + this.searchText.replace(/\s/g,"+") + this.searchEntity + this.searchAux;
-    console.log(this.url);
+    //console.log(this.url);
 
-    console.log(this.info);
     this.tableVisible = true;
 
     this.searchService.getInfo(this.url).subscribe(results =>{
       this.info = results; 
-      console.log(this.info);
+      //console.log(this.info);
     });
   }
 
